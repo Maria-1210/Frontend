@@ -1,66 +1,73 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Hoy</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Usuarios</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
 
-  <!-- 🔹 Tarjeta principal -->
-  <ion-card class="summary-card">
+  <!-- Alta -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Agregar Usuario</ion-card-title>
+    </ion-card-header>
     <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">DNI</ion-label>
+        <ion-input [(ngModel)]="nuevoUsuario.dni"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input [(ngModel)]="nuevoUsuario.nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="nuevoUsuario.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Teléfono</ion-label>
+        <ion-input [(ngModel)]="nuevoUsuario.telefono"></ion-input>
+      </ion-item>
 
-      <div class="circle-stats">
-        <div class="mini-circle">
-          <h3>{{ totalConsumed }}</h3>
-          <p>Consumidas</p>
-        </div>
-        <div class="mini-circle highlight">
-          <h3>{{ totalRemaining }}</h3>
-          <p>Restantes</p>
-        </div>
-        <div class="mini-circle">
-          <h3>{{ totalBurned }}</h3>
-          <p>Quemadas</p>
-        </div>
-      </div>
-      
-
-      <!-- 🔹 Macronutrientes en una sola línea -->
-      <div class="macros-inline">
-        <div>
-          <p>Carbohidratos</p>
-          <small>{{ carbs.consumed }}/{{ carbs.target }} g</small>
-          <ion-progress-bar [value]="carbs.consumed / carbs.target"></ion-progress-bar>
-        </div>
-        <div>
-          <p>Proteínas</p>
-          <small>{{ protein.consumed }}/{{ protein.target }} g</small>
-          <ion-progress-bar color="success" [value]="protein.consumed / protein.target"></ion-progress-bar>
-        </div>
-        <div>
-          <p>Grasas</p>
-          <small>{{ fat.consumed }}/{{ fat.target }} g</small>
-          <ion-progress-bar color="warning" [value]="fat.consumed / fat.target"></ion-progress-bar>
-        </div>
-      </div>
-
+      <ion-button expand="block" color="success" (click)="agregarUsuario()">
+        Agregar
+      </ion-button>
     </ion-card-content>
   </ion-card>
 
-  <!-- 🔹 Lista de comidas -->
+  <!-- Edición -->
+  <ion-card *ngIf="editando">
+    <ion-card-header>
+      <ion-card-title>Editar Usuario</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input [(ngModel)]="usuarioEditando.nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="usuarioEditando.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Teléfono</ion-label>
+        <ion-input [(ngModel)]="usuarioEditando.telefono"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" (click)="guardarEdicion()">Guardar</ion-button>
+      <ion-button expand="block" fill="outline" color="medium" (click)="cancelarEdicion()">Cancelar</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Listado -->
   <ion-list>
-    <ion-item *ngFor="let meal of meals">
-      <ion-avatar slot="start">
-        <img [src]="'assets/img/' + meal.icon + '.png'" alt="{{ meal.type }}">
-      </ion-avatar>
+    <ion-item *ngFor="let u of usuarios">
       <ion-label>
-        <h3>{{ meal.type }}</h3>
-        <p>{{ meal.consumed }} / {{ meal.target }} kcal</p>
+        <h2>{{ u.nombre }}</h2>
+        <p>DNI: {{ u.dni }} • {{ u.email }} • {{ u.telefono }}</p>
       </ion-label>
-      <ion-button fill="clear" slot="end" (click)="addMeal(meal.type)">
-        <ion-icon name="add-circle" color="primary"></ion-icon>
-      </ion-button>
+      <ion-button fill="clear" color="primary" (click)="editarUsuario(u)">Editar</ion-button>
+      <ion-button fill="clear" color="danger" (click)="eliminarUsuario(u.dni)">Eliminar</ion-button>
     </ion-item>
   </ion-list>
 

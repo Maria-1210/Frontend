@@ -1,179 +1,81 @@
-/* ===========================
-   Home Styles (Ionic)
-   =========================== */
-
-/* 🌌 Fondo general del contenido */
 ion-content {
-    --background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    color: #fff;
-    min-height: 100vh;
-    display: block;
+  --background: #f4f6f8;
+  padding-bottom: 3rem;
+}
+
+/* Tarjetas principales */
+ion-card {
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+
+  ion-card-header {
+    background: linear-gradient(135deg, #3bb78f, #0bab64);
+    color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
   }
-  
-  /* 🧭 Header / Toolbar (quitar blanco y líneas) */
-  ion-header,
-  ion-toolbar {
-    --background: transparent !important;
-    --ion-color-base: transparent !important;
-    --border-width: 0 !important;
-    color: #fff;
-    box-shadow: none;
+
+  ion-card-title {
+    font-weight: 600;
+    font-size: 1.2rem;
   }
-  .header-md::after,
-  .header-ios::after {
-    /* elimina la línea inferior del toolbar en iOS/MD */
-    background: transparent !important;
-    height: 0 !important;
+}
+
+/* Inputs */
+ion-item {
+  --background: #fff;
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+  ion-label {
+    color: #444;
   }
-  
-  /* ===========================
-     Tarjeta Resumen superior
-     =========================== */
-  .summary-card {
-    border-radius: 20px;
-    text-align: center;
-    padding: 1rem;
-    margin: 1rem;
-    background: rgba(255, 255, 255, 0.15);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    color: #fff;
-  }
-  
-  /* 🔵 Circulitos de stats */
-  .circle-stats {
-    display: flex;
-    justify-content: space-around;
-    gap: .75rem;
-    margin-bottom: 1rem;
-  
-    .mini-circle {
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      width: 90px;
-      height: 90px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  
-      h3 {
-        margin: 0;
-        font-size: 1.2rem;
-        font-weight: bold;
-        color: #fff;
-      }
-      p {
-        margin: 0;
-        font-size: 0.8rem;
-        color: #ddd;
-      }
-    }
-  
-    .highlight {
-      background: rgba(56, 128, 255, 0.2);
-      border: 2px solid #3880ff;
-  
-      h3 { color: #3880ff; }
-    }
-  }
-  
-  /* 🧪 Macronutrientes en línea */
-  .macros-inline {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    margin-top: 1rem;
-    gap: .5rem;
-  
-    div {
-      flex: 1;
-  
-      p {
-        margin: 0;
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: #fff;
-      }
-  
-      small {
-        display: block;
-        color: #ddd;
-        font-size: 0.75rem;
-        margin-bottom: 0.3rem;
-      }
-  
-      ion-progress-bar {
-        height: 6px;
-        border-radius: 4px;
-        --background: rgba(255, 255, 255, 0.25);
-        --progress-background: rgba(255, 255, 255, 0.6);
-      }
-    }
-  }
-  
-  /* 👤 Avatar */
-  ion-avatar img {
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #fff;
-  }
-  
-  /* ===========================
-     Listas de comidas (cards)
-     =========================== */
-  ion-list {
-    background: transparent !important;
-    box-shadow: none !important;
-    margin: 1rem;
-    border-radius: 12px;
-  }
-  
+}
+
+/* Botones */
+ion-button {
+  margin-top: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(59, 183, 143, 0.3);
+}
+
+/* Listado */
+ion-list {
+  background: transparent;
   ion-item {
-    --background: rgba(255, 255, 255, 0.1);
-    --color: #fff;
-    --border-color: rgba(255, 255, 255, 0.15);
-    --inner-padding-end: 12px;
-    --inner-padding-start: 12px;
-    margin-bottom: 0.6rem;
+    background: #fff;
     border-radius: 12px;
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-  
-    ion-label {
-      color: #fff !important;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+    h2 {
+      color: #333;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    ion-button {
+      font-size: 0.8rem;
+      margin-left: 5px;
     }
   }
-  
-  /* Opcional: quitar borde separador entre items en iOS/MD */
-  .list-md,
-  .list-ios {
-    --ion-item-border-color: transparent;
-  }
-  
+}
 
-  
-  ion-title {
-    color: #fff !important;
-    font-weight: bold;
-    font-size: 1.4rem;
-  }
+/* Edición */
+ion-card.editing {
+  border: 2px solid #0bab64;
+}
 
-  /* ===========================
-     Utilidades reutilizables
-     =========================== */
-  .glass-card {
-    background: rgba(255, 255, 255, 0.15);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+/* Responsive */
+@media (max-width: 600px) {
+  ion-card {
+    margin: 0 10px;
   }
-  
-  /* Por si alguna vista fuerza blanco vía :host */
-  :host {
-    background: transparent !important;
-  }
-  
+}
