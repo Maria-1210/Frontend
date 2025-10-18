@@ -30,15 +30,6 @@ export const routes: Routes = [
         path: 'stats',
         loadComponent: () => import('./tabs/stats/stats.page').then(m => m.StatsPage)
       },
-       {
-        path: 'sucursal', // 👈 nueva tab agregada acá
-        loadComponent: () => import('./tabs/sucursal/sucursal.page').then(m => m.SucursalPage)
-      },
-        {
-        path: 'prestador',
-        loadComponent: () => import('./tabs/prestador/prestador.page').then(m => m.PrestadorPage)
-      },
-
       {
         path: 'profile',
         loadComponent: () => import('./tabs/profile/profile.page').then(m => m.ProfilePage)
